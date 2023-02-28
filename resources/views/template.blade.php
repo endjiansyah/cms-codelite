@@ -25,16 +25,19 @@
 
 
                     <div class="navbar-nav">
+                        @if (session('id_user'))
+                        <a class="nav-link active" aria-current="page" href="/admin">Home</a>
+                        <a class="nav-link" href="/news">News</a>
+                        @else
                         <a class="nav-link active" aria-current="page" href="/">Home</a>
-                        <a class="nav-link" href="/article">Article</a>
-                        <a class="nav-link" href="/produk">Produk</a>
+                        @endif
                     </div>
                     <div class="row">
-                        @if (session('id_user'))
+                    @if (session('id_user'))
                         <h5 class="col text-light my-auto">{{ session('nama_user') }}</h5>
                         <a href="{{ route('logout') }}" class="btn btn-danger col py-auto">Logout</a>
                         @else
-                            <a href="" class="btn btn-light btn-sm font-bold">Login</a>
+                        <a href="{{ route('login') }}" class="btn btn-light col font-bold py-auto">Login</a>
                         @endif
                     </div>
                 </div>

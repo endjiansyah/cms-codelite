@@ -53,7 +53,7 @@ class AuthController extends Controller
         session()->put("nama_user", $auth['data']['user']['name']);
         // dd($payload,$auth,session('id_user'));
 
-        return redirect('/news');
+        return redirect('/admin');
         
     }
 }

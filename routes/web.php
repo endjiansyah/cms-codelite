@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\NewsController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,6 +27,9 @@ Route::prefix("news")->name("news.")->controller(NewsController::class)->group(f
     Route::post("/update/{id}", "update")->name("update");
     Route::get("/destroy/{id}", "destroy")->name("destroy");
 });
+
+Route::get('/admin', [UserController::class, 'index'])->name('admin');
+Route::post('/changepass', [UserController::class, 'update'])->name('changepass');
 
 // ----( auth )----
 Route::get('/login', function () {

@@ -2,6 +2,7 @@
 @section('title','codelite')
 @section('content')
 <div class="row">
+    <?php $hitung = 0; ?>
     @foreach ($data as $item)
     <div class="col col-lg-4 p-2">
     
@@ -16,6 +17,10 @@
             </div>
         </div>
     </div>
+    <?php $hitung++ ?>
     @endforeach
+    @if ($hitung == 0)
+        <h4>News Not Found</h4>
+    @endif
 </div>
 @endsection

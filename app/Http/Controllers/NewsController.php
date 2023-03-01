@@ -76,7 +76,7 @@ class NewsController extends Controller
                 "banner" => $request->file('banner')
             ];
         }else{
-            $file = '';
+            $file = [];
         }
 
         $news = HttpClient::fetch(
@@ -86,7 +86,10 @@ class NewsController extends Controller
             $file
         );
         // dd($news,$news['message'],$payload,$file);
+        if(!$news['status']){
+        return redirect()->back()->with(['error' => 'isi input dengan benar!']);
 
+        }
         return redirect()->back()->with(['success' => $news['message']]);
     }
 

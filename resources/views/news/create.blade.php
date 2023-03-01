@@ -18,10 +18,13 @@
                         <input type="file" name="banner" placeholder="banner" id="banner" class="form-control mb-3">
 
                         <label for="content" class="form-label">content</label>
-                        <textarea name="content" id="content" class="form-control mb-3"></textarea>
+                        <textarea name="content" id="content" class="form-control mb-3" required></textarea>
                     </div>
                     <div class="card-footer">
                         <input type="submit" value="Save" class="btn btn-success px-4">
+                        @if ($message = Session::get('error'))
+                        <span class="text-danger">{{$message}}</span>
+                    @endif
                     </div>
                 </form>
             </div>

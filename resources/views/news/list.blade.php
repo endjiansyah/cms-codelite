@@ -15,6 +15,7 @@
                 </tr>
             </thead>
             <tbody>
+                <?php $hitung = 0; ?>
                 @foreach ($data as $item)
                 <tr>
                     <td>{{ $item['title'] }}</td>
@@ -25,7 +26,13 @@
 
                     </td>
                 </tr>
+                <?php $hitung++; ?>
                 @endforeach
+                @if ($hitung == 0)
+                <tr>
+                    <td colspan="3" class="text-center"><h3>Empty News</h3></td>
+                </tr>
+            @endif
             </tbody>
         </table>
     </div>

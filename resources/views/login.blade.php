@@ -16,11 +16,11 @@
                     <div class="card-body" style="background: rgb(167, 255, 167)">
                         <div class="text-left">
                             <label for="email" class="form-label">Email</label>
-                            <input type="email" name="email" id="email" class="form-control" placeholder="ex@email.com...">
+                            <input type="email" name="email" id="email" class="form-control" placeholder="ex@email.com..." required>
                         </div>
                         <div class="text-left">
                             <label for="password" class="form-label">Password</label>
-                            <input type="password" name="password" id="password" class="form-control" placeholder="password...">
+                            <input type="password" name="password" id="password" class="form-control" placeholder="password..." required>
                         </div>
                         <div class="text-center">
                             <button type="submit" class="btn btn-success mt-4">Login</button>

@@ -19,7 +19,7 @@ class NotLogin
         if (session('token') != null) {
             $auth = HttpClient::fetch(
                 "GET",
-                "http://localhost:8000/api/me"
+                "me"
             );
             if(!$auth['status']) {
                 session()->flush();

@@ -10,6 +10,7 @@ class HttpClient
 
     static function fetch($method, $url, $body = [], $files = [])
     {
+        $url = 'http://localhost:8000/api/'.$url;
         $headers = [];
         $token = session()->get("token", "");
         if ($token != "") {

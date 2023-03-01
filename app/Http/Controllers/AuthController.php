@@ -7,12 +7,11 @@ use Illuminate\Http\Request;
 
 class AuthController extends Controller
 {
-    public $api = 'http://localhost:8000/api/';
     public function logout()
     {
         HttpClient::fetch(
             "GET",
-            $this->api."logout"
+            "logout"
         );
         session()->flush();
         return redirect('/login');
@@ -32,7 +31,7 @@ class AuthController extends Controller
 
         $auth = HttpClient::fetch(
             "POST",
-            $this->api."login",
+            "login",
             $payload,
         );
 
@@ -59,7 +58,7 @@ class AuthController extends Controller
     public function pagelogin()
     {
         return view('login', [
-            "page" => 'home'
+            "page" => 'login'
         ]);
     }
 }

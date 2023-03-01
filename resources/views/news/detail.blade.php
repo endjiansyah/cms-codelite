@@ -9,11 +9,11 @@
             </div>
         </div>
         <div class="card-body row">
-            <div class="col-lg-5">
-                <img src="{{ $data['banner'] }}" alt="Codelite {{ $data['title'] }}" class="img-fluid">
-            </div>
             <div class="col-lg-7 pt-3">
                 <p>{{ $data['content'] }}</p>
+            </div>
+            <div class="col-lg-5">
+                <img src="{{ $data['banner'] }}" alt="Codelite {{ $data['title'] }}" class="img-fluid">
             </div>
         </div>
     </div>

@@ -37,7 +37,9 @@
                         <h5 class="col text-light my-auto">{{ session('nama_user') }}</h5>
                         <a href="{{ route('logout') }}" class="btn btn-danger col py-auto">Logout</a>
                         @else
-                        <a href="{{ route('login') }}" class="btn btn-light col font-bold py-auto">Login</a>
+                            @if($page != 'login')
+                                <a href="{{ route('login') }}" class="btn btn-light col font-bold py-auto">Login</a>
+                            @endif
                         @endif
                     </div>
                 </div>

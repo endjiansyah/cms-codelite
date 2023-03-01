@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 
 class NewsController extends Controller
 {
-    public $api = 'http://localhost:8000/api/news/';
+    public $api = 'news/';
 
     function index()
     {

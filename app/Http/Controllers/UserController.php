@@ -7,13 +7,12 @@ use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
-    public $api = 'http://localhost:8000/api/';
 
     function index()
     {
         $responseData = HttpClient::fetch(
             "GET",
-            $this->api.'user/'. session('id_user')
+            'user/'. session('id_user')
         );
         $data = $responseData["data"];
         
@@ -31,7 +30,7 @@ class UserController extends Controller
             return redirect()->back()->with(['error' => 'Password Kosong']);
         }
 
-        if(strlen($request->input('password') <6)){
+        if(strlen($request->input('password')) <6){
             return redirect()->back()->with(['error' => 'panjang password minimal 6 character']);
         }
 
@@ -45,7 +44,7 @@ class UserController extends Controller
 
         $news = HttpClient::fetch(
             "POST",
-            $this->api . "user/".session('id_user') .'/edit',
+            "user/".session('id_user') .'/edit',
             $payload,
         );
 

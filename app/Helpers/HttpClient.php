@@ -10,7 +10,8 @@ class HttpClient
 
     static function fetch($method, $url, $body = [], $files = [])
     {
-        $url = 'http://localhost:8000/api/'.$url;
+        $url = 'http://localhost:8000/api/'.$url; //local
+        // $url = 'http://localhost:8000/api/'.$url; //deploy
         $headers = [];
         $token = session()->get("token", "");
         if ($token != "") {
@@ -20,21 +21,15 @@ class HttpClient
         if ($method == "GET") {
             return Http::withHeaders($headers)->get($url)->json();
         }
-        //jika terdapat file, client berupa multipart
         if (sizeof($files) > 0) {
             $client = Http::asMultipart()->withHeaders($headers);
-            // dd($files);
-            //attach setiap file pada client
 
             foreach ($files as $key => $file) {
                 $path = $file->getPathname();
                 $name = $file->getClientOriginalName();
-                //attach file (sisipkan file)
                 $client->attach($key, file_get_contents($path), $name);
-                // dd($key, $path, $name);
             }
 
-            //fetch api
             return $client->post($url, $body)->json();
         }
 

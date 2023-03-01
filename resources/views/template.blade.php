@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <script src="https://cdn.tiny.cloud/1/945mcsgfk431ijoj5cqmn5kk1a5oclfx206q55bvrbtw521k/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
     <!-- Latest compiled and minified CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
@@ -32,10 +34,10 @@
                         <a class="nav-link {{ $page == 'home'? 'active' : '' }}" aria-current="page" href="/">Home</a>
                         @endif
                     </div>
-                    <div class="row">
+                    <div class="d-flex justify-between">
                     @if (session('id_user'))
-                        <h5 class="col text-light my-auto">{{ session('nama_user') }}</h5>
-                        <a href="{{ route('logout') }}" class="btn btn-danger col py-auto">Logout</a>
+                        <h5 class=" text-light my-auto px-2">{{ session('nama_user') }}</h5>
+                        <a href="{{ route('logout') }}" class="btn btn-danger  py-auto">Logout</a>
                         @else
                             @if($page != 'login')
                                 <a href="{{ route('login') }}" class="btn btn-light col font-bold py-auto">Login</a>
@@ -64,7 +66,10 @@
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://code.jquery.com/jquery-3.6.2.min.js"
         integrity="sha256-2krYZKh//PcchRtd+H+VyyQoZ/e3EcrkxhM8ycwASPA=" crossorigin="anonymous"></script>
-
-    @yield('script')
+        <script>
+            tinymce.init({
+                selector: 'textarea'
+            });
+        </script>
 </body>
 </html>

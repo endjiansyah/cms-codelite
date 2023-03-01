@@ -18,7 +18,7 @@
                         <input type="file" name="banner" placeholder="banner" id="banner" class="form-control mb-3">
 
                         <label for="content" class="form-label">content</label>
-                        <textarea name="content" id="content" class="form-control mb-3" required></textarea>
+                        <textarea name="content" id="content" class="form-control mb-3"></textarea>
                     </div>
                     <div class="card-footer">
                         <input type="submit" value="Save" class="btn btn-success px-4">

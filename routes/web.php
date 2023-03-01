@@ -19,7 +19,7 @@ use Illuminate\Support\Facades\Route;
 Route::get("/", [NewsController::class, "index"])->name('index');
 
 Route::prefix("news")->name("news.")->controller(NewsController::class)->group(function () {
-    Route::get('/', 'list')->name('index');
+    Route::get('/', 'list')->name('index')->middleware('notlogin');
     Route::get("/detail/{id}", "detail")->name("detail");
     Route::get('/create', 'create')->name('create')->middleware('notlogin');
     Route::post('/store', 'store')->name('store')->middleware('notlogin');

@@ -126,7 +126,7 @@ class NewsController extends Controller
 
         $news = HttpClient::fetch(
             "POST",
-            $this->api . $id . "/edit",
+            "news/" . $id . "/edit",
             $payload,
             $file
         );
@@ -140,11 +140,10 @@ class NewsController extends Controller
 
     function destroy($id)
     {
-        HttpClient::fetch(
+        $news = HttpClient::fetch(
             "POST",
-            $this->api . $id . "/delete",
+            "news/" . $id . "/delete",
         );
-
         return redirect()->back()->with(['success' => 'Data terhapus']);
     }
 }

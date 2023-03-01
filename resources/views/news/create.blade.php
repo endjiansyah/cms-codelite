@@ -1,4 +1,5 @@
 @extends('template')
+@section('title','Codelite Add News')
 
 @section('content')
     <div class="card card-secondary">

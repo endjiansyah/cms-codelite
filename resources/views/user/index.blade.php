@@ -1,5 +1,5 @@
 @extends('template')
-@section('title','codelite')
+@section('title','Codelite Dashboard')
 @section('content')
 <h2>Selamat Datang {{ $data['name'] }}</h2>
 <h5>{{ $data['email'] }}</h5>

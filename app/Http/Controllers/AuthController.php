@@ -56,4 +56,10 @@ class AuthController extends Controller
         return redirect('/admin');
         
     }
+    public function pagelogin()
+    {
+        return view('login', [
+            "page" => 'home'
+        ]);
+    }
 }

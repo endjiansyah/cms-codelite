@@ -20,7 +20,7 @@ class UserController extends Controller
         // dd($data);
         return view('user.index', [
             "data" => $data,
-            "page" => 'user'
+            "page" => 'home'
         ]);
     }
 

@@ -26,10 +26,10 @@
 
                     <div class="navbar-nav">
                         @if (session('id_user'))
-                        <a class="nav-link active" aria-current="page" href="/admin">Home</a>
-                        <a class="nav-link" href="/news">News</a>
+                        <a class="nav-link  {{ $page == 'home'? 'active' : '' }}" aria-current="page" href="/admin">Home</a>
+                        <a class="nav-link {{ $page == 'news'? 'active' : '' }}" href="/news">News</a>
                         @else
-                        <a class="nav-link active" aria-current="page" href="/">Home</a>
+                        <a class="nav-link {{ $page == 'home'? 'active' : '' }}" aria-current="page" href="/">Home</a>
                         @endif
                     </div>
                     <div class="row">

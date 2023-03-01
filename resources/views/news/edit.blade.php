@@ -1,6 +1,5 @@
 @extends('template')
-@section('title','Edit news')
-@section('page','news')
+@section('title','Codelite Edit News')
 @section('content')
 <div class="card card-secondary">
     <div class="card-header">

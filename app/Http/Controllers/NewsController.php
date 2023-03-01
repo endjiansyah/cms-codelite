@@ -20,7 +20,8 @@ class NewsController extends Controller
         // dd($data);
         return view('news.index', [
             "data" => $data,
-            "page" => 'user'
+            "page" => 'home'
+            
         ]);
     }
 
@@ -35,7 +36,8 @@ class NewsController extends Controller
         // dd($data);
         return view('news.list', [
             "data" => $data,
-            "page" => 'user'
+            "page" => 'news'
+            
         ]);
     }
 
@@ -51,13 +53,16 @@ class NewsController extends Controller
         // dd($data);
         return view('news.detail', [
             "data" => $data,
-            "page" => 'user'
+            "page" => 'home'
+            
         ]);
     }
 
     public function create()
     {
-        return view("news.create");
+        return view("news.create",[
+            "page" => 'news'
+        ]);
     }
 
     function store(Request $request)
@@ -97,7 +102,8 @@ class NewsController extends Controller
         // dd($data);
         return view('news.edit', [
             "data" => $data,
-            "page" => 'user'
+            "page" => 'news'
+            
         ]);
     }
 

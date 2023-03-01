@@ -16,24 +16,23 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get("/", [NewsController::class, "index"]);
+Route::get("/", [NewsController::class, "index"])->name('index');
 
 Route::prefix("news")->name("news.")->controller(NewsController::class)->group(function () {
     Route::get('/', 'list')->name('index');
     Route::get("/detail/{id}", "detail")->name("detail");
-    Route::get('/create', 'create')->name('create');
-    Route::post('/store', 'store')->name('store');
-    Route::get("/edit/{id}", "edit")->name("edit");
-    Route::post("/update/{id}", "update")->name("update");
-    Route::get("/destroy/{id}", "destroy")->name("destroy");
+    Route::get('/create', 'create')->name('create')->middleware('notlogin');
+    Route::post('/store', 'store')->name('store')->middleware('notlogin');
+    Route::get("/edit/{id}", "edit")->name("edit")->middleware('notlogin');
+    Route::post("/update/{id}", "update")->name("update")->middleware('notlogin');
+    Route::get("/destroy/{id}", "destroy")->name("destroy")->middleware('notlogin');
 });
 
-Route::get('/admin', [UserController::class, 'index'])->name('admin');
-Route::post('/changepass', [UserController::class, 'update'])->name('changepass');
+Route::get('/admin', [UserController::class, 'index'])->name('admin')->middleware('notlogin');
+Route::post('/changepass', [UserController::class, 'update'])->name('changepass')->middleware('notlogin');
 
 // ----( auth )----
-Route::get('/login', function () {
-    return view('login');
-})->name('login');
+
+Route::get('/login', [AuthController::class, 'pagelogin'])->name('login')->middleware('islogin');
 Route::post('/auth', [AuthController::class, 'login'])->name('auth');
 Route::get('/logout', [AuthController::class, 'logout'])->name('logout');

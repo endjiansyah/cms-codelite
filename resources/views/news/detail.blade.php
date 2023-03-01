@@ -6,6 +6,7 @@
         <div class="card-header">
             <div class="d-flex justify-content-between my-auto">
                 <h5>{{ $data['title'] }}</h5>
+                <p>{{ \Carbon\Carbon::parse($data['updated_at'])->translatedFormat('d F Y H:i:s') }}</p>
             </div>
         </div>
         <div class="card-body row">

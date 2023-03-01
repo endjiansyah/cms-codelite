@@ -85,7 +85,6 @@ class NewsController extends Controller
             $payload,
             $file
         );
-        // dd($news,$news['message'],$payload,$file);
         if(!$news['status']){
         return redirect()->back()->with(['error' => 'isi input dengan benar!']);
 
@@ -123,9 +122,6 @@ class NewsController extends Controller
         }else{
             $file = [];
         }
-        $request->validate([
-            "gambar" => 'mimes:jpg,jpeg,png',
-        ]); 
         // dd($file);
 
         $news = HttpClient::fetch(
@@ -134,7 +130,11 @@ class NewsController extends Controller
             $payload,
             $file
         );
-
+        
+        if(!$news['status']){
+            return redirect()->back()->with(['error' => 'isi input dengan benar!']);
+    
+            }
         return redirect()->back()->with(['success' => 'Data terupdate']);
     }
 

@@ -11,7 +11,7 @@ class HttpClient
     static function fetch($method, $url, $body = [], $files = [])
     {
         $url = 'http://localhost:8000/api/'.$url; //local
-        // $url = 'http://localhost:8000/api/'.$url; //deploy
+        // $url = 'https://api-cms-codelite.fly.dev/api/'.$url; //deploy
         $headers = [];
         $token = session()->get("token", "");
         if ($token != "") {

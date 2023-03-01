@@ -21,6 +21,9 @@
                 </div>
                 <div class="card-footer">
                     <input type="submit" value="Save" class="btn btn-success px-4">
+                    @if ($message = Session::get('error'))
+                        <span class="text-danger">{{$message}}</span>
+                    @endif
                 </div>
             </form>
         </div>

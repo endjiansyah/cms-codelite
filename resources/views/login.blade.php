@@ -26,6 +26,7 @@
                             <button type="submit" class="btn btn-success mt-4">Login</button>
                         </div>
                     </div>
+                    <div class="card-footer"><a href="https://github.com/endjiansyah/cms-codelite/blob/master/README.md" target="_blank">Read me for login</a></div>
                 </form>
             </div>
 

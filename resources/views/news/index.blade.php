@@ -11,8 +11,9 @@
             <div class="card-body">
                 <h4 class="card-title">{{ $item['title'] }}</h4>
                 <p class="card-text">{{ strip_tags(substr($item['content'], 0, 120)) . " ..." }}</p>
-                <div class="d-flex justify-content-between">
-                    <a href="{{ route('news.detail',$item['id']) }}" class="btn btn-sm btn-primary">Detail</a>
+                <div class="d-flex justify-content-between align-items-center">
+                    <a href="{{ route('news.detail',$item['id']) }}" class="btn btn-outline-primary">Detail</a>
+                    <p>{{ \Carbon\Carbon::parse($item['updated_at'])->translatedFormat('d F Y H:i:s') }}</p>
                 </div>
             </div>
         </div>

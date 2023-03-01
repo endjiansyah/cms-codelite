@@ -11,6 +11,7 @@
                 <tr class="card-info">
                     <th>title</th>
                     <th>Banner</th>
+                    <th>Last Update</th>
                     <th>Aksi</th>
                 </tr>
             </thead>
@@ -20,6 +21,7 @@
                 <tr>
                     <td>{{ $item['title'] }}</td>
                     <td><img src="{{ $item['banner'] }}" alt="codelite {{ $item['title'] }}" width="100px"></td>
+                    <td>{{ \Carbon\Carbon::parse($item['updated_at'])->translatedFormat('d F Y H:i:s') }}</td>
                     <td>
                         <a href="{{ route('news.edit',$item['id']) }}" class="btn btn-primary btn-sm">Edit</a>
                         <a onclick="return confirm('Hapus {{ $item['title'] }}?')" href="{{ route('news.destroy', ['id' => $item['id']]) }}" class="btn btn-danger btn-sm">delete</a>
